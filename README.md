@@ -7,4 +7,4 @@ Tool: Microsoft Visual Studio
 
 ## Flower.cpp Demo
 
-<img src = "https://ftp.bmp.ovh/imgs/2021/03/cf10a5a18de3496f.png" width = "300" height = "200" alt="Flower.cpp" align=center />
+<img src = "https://ftp.bmp.ovh/imgs/2021/03/cf10a5a18de3496f.png" width = "300" height = "300" alt="Flower.cpp" align=center />
