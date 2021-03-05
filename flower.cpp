@@ -18,6 +18,7 @@ void InitGL(void)
 	glMatrixMode(GL_MODELVIEW);
 }
 
+/* Define the original square */
 void drawSquare(void)
 {
 	glBegin(GL_LINE_LOOP);
@@ -28,6 +29,7 @@ void drawSquare(void)
 	glEnd();
 }
 
+/* Transform the square into diamond */
 void drawDiamond(void)
 {
 	glPushMatrix();
@@ -47,6 +49,7 @@ void display(void)
 
 	for (n = 0; n <= 12; ++n)
 	{
+		/* Outer margin of petal */
 		glPushMatrix();
 		glRotatef(rotate_angle * n, 0.0, 0.0, 1.0);
 		glScalef(4.0f, 1.0f, 1.0f);
@@ -54,6 +57,7 @@ void display(void)
 		drawDiamond();
 		glPopMatrix();
 
+		/* Inner margin of petal */
 		glPushMatrix();
 		glRotatef(rotate_angle * n, 0.0, 0.0, 1.0);
 		glScalef(3.0f, 0.5f, 1.0f);
@@ -61,6 +65,7 @@ void display(void)
 		drawDiamond();
 		glPopMatrix();
 
+		/* The diamonds between each two petals */
 		glPushMatrix();
 		glRotatef(rotate_angle * n + 15, 0.0, 0.0, 1.0);
 		glScalef(1 / sqrt(2.0f), 1 / sqrt(2.0f), 1.0f);
@@ -68,6 +73,7 @@ void display(void)
 		drawDiamond();
 		glPopMatrix();
 
+		/* The squares between each two petals */
 		glPushMatrix();
 		glRotatef(rotate_angle * n + 15, 0.0, 0.0, 1.0);
 		glScalef(1.0f, 1.0f, 1.0f);
@@ -86,8 +92,9 @@ int main(int argc, char** argv)
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(50, 50);
-	glutCreateWindow("Flower");
+	glutCreateWindow("CS402-562 Window");
 	InitGL();
 	glutDisplayFunc(display);
 	glutMainLoop();
+	return 1;
 }
